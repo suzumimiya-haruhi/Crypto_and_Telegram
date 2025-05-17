@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的数据查看器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧：指标数据 -->
+        <div class="panel indicators-panel">
+            <h2>指标数据查看</h2>
+
+            <!-- 第一行：日期、间隔、小时输入框 -->
+            <div class="indicator-controls-row"> 
+                <div class="input-group">
+                    <label for="indicatorDate">日期:</label>
+                    <input type="date" id="indicatorDate">
+                </div>
+                <div class="input-group">
+                    <label for="indicatorInterval">间隔:</label>
+                    <select id="indicatorInterval">
+                        <option value="1h">1h</option>
+                        <option value="4h">4h</option>
+                        <option value="1d">1d</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="indicatorHour">小时:</label>
+                    <input type="number" id="indicatorHour" min="0" max="23" value="0">
+                </div>
+            </div>
+
+            <!-- 第二行：获取按钮和小时提示 -->
+            <div class="indicator-actions-row">
+                <button id="fetchIndicatorsBtn">获取指标数据</button>
+                <small id="hourHint" class="hint-text"></small>
+            </div>
+
+            <div id="indicatorsResult" class="result-area">
+                <!-- 指标表格将在这里显示 -->
+            </div>
+        </div>
+
+        <!-- 右侧：Telegram 消息 -->
+        <div class="panel telegram-panel">
+            <div class="telegram-header">
+                <h2>Telegram 消息</h2>
+                <div class="telegram-controls">
+                    <div class="telegram-date-selector">
+                        <label for="telegramDate">选择日期:</label>
+                        <input type="date" id="telegramDate">
+                    </div>
+                    <button id="fetchTelegramBtn">获取消息</button>
+                </div>
+            </div>
+            <div id="telegramMessagesContainer" class="messages-container">
+                <!-- 消息将在这里显示 -->
+            </div>
+            <div id="telegramStatus" class="status-area"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

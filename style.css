@@ -1,0 +1,367 @@
+/* style.css - 完整版 (2025-05-15, 指标控件分两行, 颜色恢复) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5; /* 恢复浅灰色背景 */
+    color: #1c1e21; /* 恢复主要文字颜色 */
+    padding-top: 20px; 
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex; 
+    width: 95%;
+    max-width: 1800px;
+    margin: 0 auto; 
+    height: calc(100vh - 40px); 
+    background-color: #ffffff; /* 恢复白色背景 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+.panel {
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    height: 100%; 
+}
+
+.indicators-panel {
+    flex: 2; 
+    border-right: 1px solid #ccd0d5; /* 恢复分隔线颜色 */
+}
+
+.telegram-panel {
+    flex: 1; 
+}
+
+/* --- 指标控件布局 --- */
+.indicator-controls-row { /* 用于第一行的输入框 */
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-end; 
+    gap: 15px; 
+    margin-bottom: 10px; 
+}
+
+.indicator-controls-row .input-group {
+    display: flex;
+    flex-direction: column; 
+    flex: 1; /* 让输入框组尝试平分可用空间 */
+    min-width: 100px; 
+}
+
+.indicator-controls-row .input-group label {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #606770; 
+    white-space: nowrap;
+}
+
+.indicator-controls-row input[type="date"],
+.indicator-controls-row select,
+.indicator-controls-row input[type="number"] {
+    width: 100%; 
+    padding: 8px 10px;
+    font-size: 0.95em;
+    border: 1px solid #ccd0d5; 
+    border-radius: 6px;
+    background-color: #f5f6f7; 
+    box-sizing: border-box;
+}
+
+.indicator-actions-row { /* 用于第二行的按钮和提示 */
+    display: flex;
+    align-items: center; 
+    margin-top: 10px; 
+    margin-bottom: 15px; 
+}
+
+#fetchIndicatorsBtn { 
+    padding: 10px 18px; 
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #1877f2; /* 恢复蓝色 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 15px; 
+    flex-shrink: 0;
+    margin-top: 0; 
+}
+#fetchIndicatorsBtn:hover {
+    background-color: #166fe5; /* 恢复悬停时深一点 */
+}
+#fetchIndicatorsBtn:disabled {
+    background-color: #e4e6eb; /* 恢复禁用颜色 */
+    color: #bcc0c4;
+    cursor: not-allowed;
+}
+
+.hint-text { /* hourHint 的样式 (在 indicator-actions-row 内) */
+    font-size: 0.85em;
+    color: #606770;
+}
+/* --- 指标控件布局结束 --- */
+
+
+.telegram-header {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 15px;
+    flex-shrink: 0; 
+}
+
+.telegram-header h2 { 
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.telegram-controls { 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+.telegram-date-selector {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; 
+}
+
+.telegram-date-selector label {
+    margin-right: 8px;
+    margin-bottom: 0;
+    margin-top: 0; 
+}
+#telegramDate { 
+    margin-bottom: 0;
+    padding: 8px 10px; 
+    font-size: 0.9em;
+    border: 1px solid #ccd0d5; /* 确保有边框 */
+    border-radius: 6px;     /* 确保有圆角 */
+    background-color: #f5f6f7; /* 确保有背景色 */
+    box-sizing: border-box;
+}
+
+#fetchTelegramBtn { 
+    margin-top: 0; 
+    padding: 8px 15px; 
+    font-size: 0.95em;
+    background-color: #1877f2; /* 恢复蓝色 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+#fetchTelegramBtn:hover {
+    background-color: #166fe5;
+}
+#fetchTelegramBtn:disabled {
+    background-color: #e4e6eb;
+    color: #bcc0c4;
+    cursor: not-allowed;
+}
+
+
+h2 { 
+    margin-top: 0;
+    margin-bottom: 20px; 
+    color: #1c1e21;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #dddfe2; /* 恢复边框颜色 */
+    padding-bottom: 10px;
+    flex-shrink: 0; 
+}
+
+label { 
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #606770;
+}
+
+input[type="date"]:not(#indicatorDate):not(#telegramDate),
+input[type="number"]:not(#indicatorHour),
+select:not(#indicatorInterval) {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px; 
+    border: 1px solid #ccd0d5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #f5f6f7;
+}
+
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #1877f2; 
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+    outline: none;
+    background-color: #fff; 
+}
+
+button:not(#fetchIndicatorsBtn):not(#fetchTelegramBtn) { 
+    background-color: #1877f2;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+
+.result-area {
+    margin-top: 0px; 
+    padding: 15px; 
+    background-color: #f7f8fa; /* 恢复背景色 */
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    flex-grow: 1;       
+    overflow-y: auto;   
+    min-height: 0;      
+}
+
+.messages-container {
+    padding: 15px;
+    background-color: #e9ebee; /* 恢复 Telegram 聊天背景色 */
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;       
+    overflow-y: auto;   
+    min-height: 0;      
+}
+
+
+.result-area table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.result-area th, .result-area td {
+    border: 1px solid #dddfe2;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.result-area th {
+    background-color: #e9ecef; /* 恢复表头背景色 */
+    font-weight: 600;
+}
+.result-area td {
+    word-break: break-word;
+}
+
+
+.message-item {
+    display: flex;
+    margin-bottom: 12px;
+    max-width: 85%;
+}
+
+.message-bubble {
+    padding: 10px 14px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+}
+
+.message-item.received .message-bubble {
+    background-color: #ffffff; /* 恢复收到的消息白色背景 */
+    border-top-left-radius: 4px;
+    align-self: flex-start;
+}
+.message-item.received {
+     align-self: flex-start;
+}
+
+.message-meta {
+    font-size: 0.8em;
+    color: #65676b; /* 恢复元信息颜色 */
+    margin-bottom: 5px;
+}
+.message-meta .sender {
+    font-weight: 600;
+    color: #056162; /* 恢复 Telegram 频道/用户名颜色 */
+}
+.message-meta .timestamp {
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+.message-content.text-content {
+    font-size: 0.95em;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.message-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin-top: 5px;
+    border: 1px solid #dddfe2; /* 恢复图片边框 */
+}
+
+.status-area {
+    padding: 8px 15px;
+    font-size: 0.85em;
+    color: #606770;
+    background-color: #f7f8fa;
+    border-top: 1px solid #dddfe2;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.error {
+    color: #fa383e; /* 恢复错误红色 */
+    font-weight: bold;
+}
+
+.loading {
+    color: #1877f2; /* 恢复加载中蓝色 */
+    font-style: italic;
+}
+
+.messages-container::before {
+    content: "选择日期并点击“获取消息”";
+    color: #606770;
+    font-style: italic;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.messages-container:empty:not(.loading-initial):not(.no-messages)::before {
+    display: block;
+}
+.messages-container.loading-initial::before {
+    content: "正在加载消息...";
+    color: #1877f2;
+    display: block;
+}
+.messages-container.no-messages::before {
+    content: "当日无消息记录";
+    color: #606770;
+    display: block;
+}
